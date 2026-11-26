@@ -14,6 +14,10 @@ describe('TodoList 앱 통합 테스트', () => {
     render(<App />);
 
     expect(screen.getByRole('heading', { name: 'Todo' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '내 홈페이지' })).toHaveAttribute(
+      'href',
+      'https://ghkch.github.io/myhome/',
+    );
     expect(screen.getByText('아직 할 일이 없어요')).toBeInTheDocument();
 
     const progress = screen.getByRole('progressbar', { name: '할 일 완료율' });

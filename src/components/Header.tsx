@@ -1,13 +1,16 @@
 import { useMemo } from 'react';
 import type { TodoStats } from '../types/todo';
 import { formatKoreanDate } from '../lib/todoUtils';
+import { HomeIcon } from './Icons';
+
+const MYHOME_URL = 'https://ghkch.github.io/myhome/';
 
 interface HeaderProps {
   stats: TodoStats;
 }
 
 /**
- * 상단 헤더: 한국어 로컬 날짜, 제목, 부제, 전체·완료 수 및 접근 가능한 진행률 바를 표시한다.
+ * 상단 헤더: 한국어 로컬 날짜, 내 홈페이지 링크, 제목, 부제, 전체·완료 수 및 접근 가능한 진행률 바를 표시한다.
  */
 export function Header({ stats }: HeaderProps) {
   const todayLabel = useMemo(() => formatKoreanDate(new Date()), []);
@@ -15,7 +18,16 @@ export function Header({ stats }: HeaderProps) {
   return (
     <header className="app-header">
       <div className="header-top">
-        <p className="header-date">{todayLabel}</p>
+        <div className="header-bar">
+          <p className="header-date">{todayLabel}</p>
+          <a
+            href={MYHOME_URL}
+            className="btn btn-secondary btn-compact header-home-link"
+          >
+            <HomeIcon />
+            <span>내 홈페이지</span>
+          </a>
+        </div>
         <h1 className="header-title">Todo</h1>
         <p className="header-subtitle">작은 실천으로 채우는 하루</p>
       </div>
