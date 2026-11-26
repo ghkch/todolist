@@ -13,7 +13,7 @@ describe('TodoList 앱 통합 테스트', () => {
   it('빈 상태에서 0% 진행률과 빈 안내 문구를 표시하고 완료 삭제 버튼을 비활성화한다', () => {
     render(<App />);
 
-    expect(screen.getByRole('heading', { name: '나의 할 일' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Todo' })).toBeInTheDocument();
     expect(screen.getByText('아직 할 일이 없어요')).toBeInTheDocument();
 
     const progress = screen.getByRole('progressbar', { name: '할 일 완료율' });

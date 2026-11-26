@@ -16,7 +16,7 @@ export function Header({ stats }: HeaderProps) {
     <header className="app-header">
       <div className="header-top">
         <p className="header-date">{todayLabel}</p>
-        <h1 className="header-title">나의 할 일</h1>
+        <h1 className="header-title">Todo</h1>
         <p className="header-subtitle">작은 실천으로 채우는 하루</p>
       </div>
 
